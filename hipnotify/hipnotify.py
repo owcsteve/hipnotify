@@ -21,12 +21,13 @@ class Room(object):
             'Content-type': 'application/json',
         }
 
-    def notify(self, msg, color='green', notify='true', message_format='text'):
+    def notify(self, msg, color='green', notify='true', message_format='text', fromwho=''):
         """Send notification to specified HipChat room"""
         self.message_dict = {
             'message': msg,
             'color': color,
             'notify': notify,
+            'from': fromwho,
             'message_format': message_format,
         }
         if not self.debug:
